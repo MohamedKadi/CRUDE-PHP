@@ -10,12 +10,15 @@ function liste_stagiaire(){
     $stagaires =$pdo->query('Select * from stagaire')->fetchAll(PDO::FETCH_OBJ);
     return $stagaires;
 }
-$count = -1;
+
 function create(){
-    global $count;
-    $count++;
+    $pdo = database_connection();
+
+    $stmt = $pdo->query('SELECT MAX(id) as max_id FROM stagaire');
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    $count = $result['max_id'] + 1;
     $nom = $_POST['nom'];
-    $pdo=database_connection();
+
     $sqlState = $pdo->prepare('INSERT INTO stagaire VALUES(?,?,?,?,?,?)');
     return $sqlState->execute([$count,$nom,$_POST['prenom'],$_POST['age'],$_POST['login'],$_POST['pw']]);
 
