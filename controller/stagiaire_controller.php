@@ -12,7 +12,9 @@ function createAction(){
     require_once 'views\create.php';
 }
 function storedataAction(){
-    var_dump($_POST);
+    $isCreated = create();
+    header('location:index.php');
+    return $isCreated;
 }
 
 function destroyAction(){

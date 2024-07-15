@@ -27,6 +27,7 @@ ob_start();
             <td><?= $stagaire->prenom ?></td>
             <td><?= $stagaire->age ?></td>
             <td><?= $stagaire->login ?></td>
+            <td><a href="delete.php?id=<?php echo $stagaire->id ?>" class="btn btn-danger">Supprimer</a></td>
         </tr>
     <?php
     endforeach;

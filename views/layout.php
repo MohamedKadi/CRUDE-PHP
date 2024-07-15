@@ -10,7 +10,7 @@
     <title><?= $title ?></title>
 </head>
 <body>
-
+<?php include_once 'include\nav.php' ?>
 <div class="container mt-2">
     <h2><?= $title ?></h2>
     <hr>
